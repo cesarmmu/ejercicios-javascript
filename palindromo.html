@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title>Palíndromo</title>
+</head>
+
+<body>
+
+<script>
+
+let fraseEntrada   = prompt('Introduce tu frase','');
+let fraseProcesada = "";
+let fraseInvertida = "";
+
+function eliminarEspacios(frase) {
+    let sinEspacios = ""
+    for (let letra of frase.toLowerCase()) {
+        if (letra != ' ') {
+            sinEspacios += letra;
+        }
+    }
+    return sinEspacios;
+}
+
+function eliminarAcentos(frase) {
+    let sinAcentos = ""
+    for (let letra of frase) {
+        switch (letra) {
+            case 'à':
+            case 'á':
+            case 'ä':
+                sinAcentos += 'a';
+                break;
+            case 'è':
+            case 'é':
+            case 'ë':
+                sinAcentos += 'e';
+                break;
+            case 'ì':
+            case 'í':
+            case 'ï':
+                sinAcentos += 'i';
+                break;
+            case 'ò':
+            case 'ó':
+            case 'ö':
+                sinAcentos += 'o';
+                break;
+            case 'ù':
+            case 'ú':
+            case 'ü':
+                sinAcentos += 'u';
+                break;
+            default:
+                sinAcentos += letra;            
+        }
+    }
+    return sinAcentos;
+}
+function comparaLetras(frase) {
+  let palindromo = true;
+  for (let i = 0, j = fraseProcesada.length -1 ; i < j ; i++, j--) {
+    if ( fraseProcesada[i] != fraseProcesada[j] ) {
+        palindromo = false;
+        break;
+    }
+  }
+  return palindromo;
+}
+// Main
+while (fraseEntrada != "") {
+  fraseProcesada = eliminarEspacios(fraseEntrada);
+  fraseProcesada = eliminarAcentos(fraseProcesada);
+  alert(`"${fraseEntrada}"\n` + (comparaLetras(fraseProcesada) ? 'Es un palíndromo.' : 'No es un palíndromo.'));
+  fraseEntrada   = prompt('Introduce tu frase','');
+}
+
+</script>
+
+</body>
+</html> 
