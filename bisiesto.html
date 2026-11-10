@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let mes = parseInt(prompt("Introduce el número del mes (1-12):"));
+    let anio = parseInt(prompt("Introduce el año:"));
+
+    if (mes < 1 || mes > 12 || isNaN(mes)) {
+      document.write("Error: introduce un mes válido(1-12).");
+    } else {
+      // Comprobar si el año es bisiesto
+      let bisiesto = (anio % 4 === 0 && anio % 100 !== 0) || (anio % 400 === 0);
+
+      if (bisiesto) {
+        document.write("El año es bisiesto.");
+      } else {
+          document.write("El año no es bisiesto.");
+      }
+
+      // Comprobar los días del mes
+      if (mes === 2) {
+          if (bisiesto) {
+            document.write("Febrero tiene 29 días.");
+          } else {
+            document.write("Febrero tiene 28 días.");
+          }
+      } else if (mes === 4 || mes === 6 || mes === 9 || mes === 11) {
+        document.write("Este mes tiene 30 días.");
+      } else {
+        document.write("Este mes tiene 31 días.");
+      }
+    }
+  </script>
+  
+</body>
+</html>

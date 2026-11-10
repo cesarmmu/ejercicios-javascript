@@ -1,0 +1,25 @@
+formularios validación de datos (lado cliente):
+https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Form_validation
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements
+
+aprende javascript
+https://lenguajejs.com/aprender-a-programar/roadmap/javascript/
+
+https://www.loading.es/blog/usar-javascript-en-html/
+
+https://es.javascript.info/
+
+https://www.semrush.com/blog/semantic-html5-guide/#html-semantic-tags-for-structure
+https://es.semrush.com/blog/html-semantico/
+
+
+https://www.freecodecamp.org/espanol/learn/semantic-html/
+
+
+formularios: 
+https://www.w3schools.com/html/html_forms.asp
+
+enciclopedia html:
+https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/HTML5_input_types
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title>Adivinar un número</title>
+
+<script>
+
+function programa() {
+    let secreto = parseInt(Math.random() * 1000);
+    let intentos = 0;
+    let historialIntentos = ""; 
+    let elementoSalida = document.getElementById("salida");
+
+    // Limpiamos la salida al iniciar una nueva partida
+    elementoSalida.innerHTML = "";
+
+    function pedirNumero() {
+        let entrada = window.prompt("Introduce un número entre 0 y 999:");
+        
+        // Si el usuario cancela la ventana, finaliza el programa
+        if (entrada === null) return;
+
+        let numUsuario = parseInt(entrada);
+        intentos++;
+
+        let pista = "";
+        if (numUsuario > secreto) {
+            pista = "El número buscado es <b>menor</b>";
+        } else if (numUsuario < secreto) {
+            pista = "El número buscado es <b>mayor</b>";
+        } else {
+            pista = "<b>¡Acertaste!</b>";
+        }
+
+        // Se acumula la jugada actual en el historial
+        historialIntentos += `Intento ${intentos}: ${numUsuario} - ${pista}<br>`;
+
+        if (numUsuario === secreto) {
+            // Si acierta, mostramos el resultado final
+            elementoSalida.innerHTML = `
+                ${historialIntentos}
+                <br><p><b>¡Enhorabuena, has completado el juego en ${intentos} intentos!</b></p>
+            `;
+        } else {
+            // Mostramos la jugada actual en pantalla inmediatamente
+            elementoSalida.innerHTML = `
+                <p><b>Partida en curso...</b></p>
+                ${historialIntentos}
+            `;
+
+            // Usamos setTimeout para dar tiempo al navegador a pintar el HTML 
+            // antes de volver a lanzar el prompt del siguiente intento.
+            setTimeout(pedirNumero, 50);
+        }
+    }
+
+    // Iniciamos el ciclo de peticiones
+    pedirNumero();
+}
+
+</script>
+</head>
+
+<body>
+<h3>Adivina el número secreto</h3>
+<input type="button" value="Pulsa aquí para jugar" onclick="programa()" />
+<div id="salida"></div>
+</body>
+</html>

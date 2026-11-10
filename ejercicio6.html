@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let operando1 = "";
+
+    while(operando1 == "") {
+        operando1 = Number(prompt('Introcude el primer operando', ''));
+        if (operando1 == "Nan")
+        alert('Debe ser un número')
+    }
+
+    let operacion = prompt('Introcude operación (+,-,*,/,**)');
+    if (operacion != '+' && operacion != '-' && operacion != '*' && operacion != '/' && operacion !='**'){
+        alert('Operación no válida');
+        operacion = prompt('Introcude operación (+,-,*,/,**)')
+    }
+
+    let operando2 = "";
+    while(operando2 == "") {
+        operando2 = Number(prompt('Introcude el segundo operando', ''));
+        if (operando2 == "Nan"){
+            alert('Debe ser un número')
+            
+            if(operacion == '/' && operando2 == 0){
+                alert('No se puede dividir por 0');
+            } else {
+                break;
+            }
+        }
+    }
+
+    if (operacion =='+') {
+        alert(`La suma de ${operando1} + ${operando2} = ${+operando1 + +operando2}`);
+    } else if (operacion == '-'){
+        alert(`La resta de ${operando1} + ${operando2} = ${+operando1 - operando2}`);
+    } else if (operacion == '*'){
+        alert(`La multiplicación de ${operando1} + ${operando2} = ${+operando1 * +operando2}`);
+    } else if (operacion == '/'){
+        alert(`La división de ${operando1} + ${operando2} = ${+operando1 / +operando2}`);
+    } else {
+        alert(operando1 ** operando2)
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

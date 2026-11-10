@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p><
+    Crear nueva Calculadora
+importancia: 5
+Crear una función constructora Calculator que crea objetos con 3 métodos:
+
+read() pide dos valores usando prompt y los guarda en las propiedades del objeto con los nombres a y b.
+sum() devuelve la suma de estas propiedades.
+mul() devuelve el producto de la multiplicación de estas propiedades. </p> 
+    <script>
+      function Calculator() {
+        this.a = null;
+        this.b = null;
+        this.read = function() {
+        this.a = prompt('Escribe el primer operando:' ,null);
+        this.b = prompt('Escribe el segundo operando:',null);
+      };
+      this.sum = function() { return Number(this.a) + Number(this.b) };
+      this.mul = function() { return this.a * this.b };
+      return;
+      }
+      calculator = new Calculator();
+      calculator.read
+      ();
+      alert( calculator.sum() );
+      alert( calculator.mul() ); 
+    </script>
+</body>
+</html>

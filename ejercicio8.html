@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora sencilla</title>
+  <script>
+    // 1. Función para pedir y validar el operador
+    function pedirOperador() {
+        let operator;
+        do {
+            operator = prompt("Ingresa el operador (+, -, *, /, **, %)");
+        } while (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/' && operator !== '**' && operator !== '%');
+        return operator;
+    }
+
+    // 2. Función para pedir y validar un operando (número)
+    function pedirOperando(mensaje) {
+        let number;
+        do {
+            number = prompt(mensaje);
+        } while (number === null || number.trim() === '' || isNaN(Number(number)));
+        return Number(number);
+    }
+
+    // 3. Función para hacer la operación aritmética
+    function calcularOperacion(n1, n2, operator) {
+        let result;
+        if (operator === '+') {
+            result = n1 + n2;
+        } else if (operator === '-') {
+            result = n1 - n2;
+        } else if (operator === '*') {
+            result = n1 * n2;
+        } else if (operator === '/') {
+            result = n1 / n2;
+        } else if (operator === '**') {
+            result = n1 ** n2;
+        } else if (operator === '%') {
+            result = n1 % n2;
+        }
+        return result;
+    }
+
+    // --- Flujo Principal ---
+    let finish;
+
+    do {
+        let number1 = pedirOperando("Ingresa el primer operando");
+        let operator = pedirOperador();
+        let number2 = pedirOperando("Ingresa el segundo operando");
+
+        let result = calcularOperacion(number1, number2, operator);
+
+        alert(`El resultado de la operación es: ${result}`);
+
+        finish = prompt("¿Deseas continuar? (S/N)");
+
+    } while (finish !== 'N' && finish !== 'n');
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
